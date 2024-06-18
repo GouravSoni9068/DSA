@@ -1,22 +1,39 @@
 #include<iostream>
 using namespace std;
-void binToDec(int bin)
+void DecToBin(int dec)
 {
-    int dec=0;
+    int bin=0;
     int pow=1;
-    while(bin!=0)
+    while(dec!=0)
     {
-        int lastDig=bin%10;
-        dec+=(lastDig*pow);
-        pow*=2;
-        bin/=10;
+        int rem=dec%2;
+        bin+=(rem*pow);
+        pow*=10;
+        dec/=2;
     }
-    cout<<dec;
+    cout<<bin;
+    
+}
+void DecToBin2(int dec)
+{
+    int bin=0;
+    int pow=1;
+    while(dec!=0)
+    {
+        int rem=dec&1;
+
+        bin+=(rem*pow);
+        pow*=10;
+        dec= dec>>1;
+    }
+    cout<<bin;
+    
 }
 
 int main()
 {
-    binToDec(110110);
+    
+    DecToBin2(20);
     
     return 0;
 }
